@@ -2,6 +2,7 @@
 
 
 import React from 'react';
+import PropTypes from 'prop-types';
 let { View, StyleSheet, TextInput, Text, DatePickerAndroid} = require('react-native');
 import {Field} from './Field';
 
@@ -10,7 +11,7 @@ import {Field} from './Field';
     constructor(props){
       super(props);
       this.state = {
-        date: props.date? new Date(props.date) :'',
+        date: props.date? new Date(props.date) : '',
         isPickerVisible: false
       }
 
@@ -30,6 +31,7 @@ import {Field} from './Field';
       if(this.props.onChange)      this.props.onChange((this.props.prettyPrint)?this.props.dateTimeFormat(date):date);
       if(this.props.onValueChange) this.props.onValueChange(date);
     }
+    
     setDate(date){
       this.setState({date:date});
       if(this.props.onChange)      this.props.onChange((this.props.prettyPrint)?this.props.dateTimeFormat(date):date);
@@ -107,13 +109,13 @@ import {Field} from './Field';
   }
 
   DatePickerComponent.propTypes = {
-    dateTimeFormat: React.PropTypes.func
+    dateTimeFormat: PropTypes.func
   }
 
   DatePickerComponent.defaultProps = {
     dateTimeFormat: (date)=>{
       if(!date) return "";
-      return date.toLocaleDateString()
+      return date.toLocaleDateString('vi-VN')
     }
   };
 
