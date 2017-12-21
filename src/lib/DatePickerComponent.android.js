@@ -80,7 +80,7 @@ import {Field} from './Field';
           {placeholderComponent}
           <View style={[formStyles.alignRight, formStyles.horizontalContainer]}>
             <Text style={[formStyles.fieldValue,this.props.valueStyle ]}>{
-            (this.state.date)?this.state.date.toLocaleDateString():""
+            (this.state.date)?this.state.date.getDate()+'/'+this.state.date.getMonth()+'/'+this.state.date.getFullYear():""
           }</Text>
 
 
@@ -115,7 +115,10 @@ import {Field} from './Field';
   DatePickerComponent.defaultProps = {
     dateTimeFormat: (date)=>{
       if(!date) return "";
-      return date.toLocaleDateString('vi-VN')
+      let dd = date.getDate();
+      let mm = date.getMonth();
+      let yyyy = date.getFullYear();
+      return dd + '/' + mm + '/' + yyyy
     }
   };
 

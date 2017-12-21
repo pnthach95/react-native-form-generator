@@ -106,7 +106,8 @@ TimePickerComponent.propTypes = {
 TimePickerComponent.defaultProps = {
   dateTimeFormat: (date) => {
     if (!date) return "";
-    return date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    //return date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    return date.getHours() + ':' + date.getMinutes()
   }
 };
 
